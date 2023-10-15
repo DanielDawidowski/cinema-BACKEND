@@ -1,0 +1,173 @@
+@baseUrl = http://localhost:5000
+@urlPath = api/v1
+
+
+###  
+POST {{baseUrl}}/{{urlPath}}/hall
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+  {
+    "hallNumber": 2,
+     "seats": [
+        {
+          "row": "A",
+          "seat": 1,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 2,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 3,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 4,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 5,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 6,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 7,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 8,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        }
+      ]
+  }
+
+###
+GET {{baseUrl}}/{{urlPath}}/halls
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+GET {{baseUrl}}/{{urlPath}}/hall/652baa6242e5fe895fca4561
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+PUT {{baseUrl}}/{{urlPath}}/hall/652baa6242e5fe895fca4561
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+  {
+    "hallNumber": 2,
+     "seats": [
+        {
+          "row": "A",
+          "seat": 1,
+          "price": 10,
+          "status": "FREE",
+          "type": "VIP",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 2,
+          "price": 10,
+          "status": "FREE",
+          "type": "VIP",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 3,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 4,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 5,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 6,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 7,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        },
+        {
+          "row": "A",
+          "seat": 8,
+          "price": 100,
+          "status": "FREE",
+          "type": "STANDARD",
+          "color": "black"
+        }
+      ]
+  }
+
+###
+DELETE {{baseUrl}}/{{urlPath}}/hall/652baa4ec42c4de2d1870dc2
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
