@@ -25,6 +25,7 @@
       "@user/*": ["src/features/user/*"],
       "@city/*": ["src/features/city/*"],
       "@hall/*": ["src/features/hall/*"],
+      "@movie/*": ["src/features/movie/*"],
       "@global/*": ["src/shared/globals/*"],
       "@service/*": ["src/shared/services/*"],
       "@root/*": ["src/*"]

@@ -3,7 +3,7 @@ import HTTP_STATUS from "http-status-codes";
 import { joiValidation } from "@global/decorators/joi-validation.decorators";
 import { citySchema } from "@city/schemes/city.scheme";
 import { ObjectId } from "mongodb";
-import { ICityData } from "@city/interfaces/city.interface";
+import { ICityDocument } from "@city/interfaces/city.interface";
 import { cityService } from "@service/db/city.service";
 
 export class Create {
@@ -12,12 +12,12 @@ export class Create {
     const { name, halls } = req.body;
     const messageObjectId: ObjectId = new ObjectId();
 
-    const cityData: ICityData = {
+    const cityData: ICityDocument = {
       _id: `${messageObjectId}`,
       name,
       halls,
       createdAt: new Date()
-    };
+    } as ICityDocument;
     await cityService.addCityToDB(cityData);
 
     res.status(HTTP_STATUS.OK).json({ message: "City added", cityData: cityData });
