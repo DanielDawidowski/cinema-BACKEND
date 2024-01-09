@@ -6,6 +6,7 @@ import { cityRoutes } from "@city/routes/city.route";
 import { hallRoutes } from "@hall/routes/hall.route";
 import { movieRoutes } from "@movie/routes/movie.route";
 import { showRoutes } from "@show/routes/show.route";
+import { ticketRoutes } from "@ticket/routes/routes";
 
 const BASE_PATH = "/api/v1";
 
@@ -19,6 +20,7 @@ export default (app: Application) => {
     app.use(BASE_PATH, hallRoutes.routes());
     app.use(BASE_PATH, movieRoutes.routes());
     app.use(BASE_PATH, showRoutes.routes());
+    app.use(BASE_PATH, ticketRoutes.routes());
   };
   routes();
 };

@@ -3,45 +3,43 @@
 
 
 ###   
-POST {{baseUrl}}/{{urlPath}}/show
+POST {{baseUrl}}/{{urlPath}}/ticket
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "hall": "659d017cd61801ac6591a2c0",
   "movie": "659c0fcc68f64efa7ba35488",
-  "time": "20:00",
-  "date": "06.06.2024"
+  "show": "659d2078255154e5bd8c1633",
+  "seat": "A 12"
 }
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows
+GET {{baseUrl}}/{{urlPath}}/tickets
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/show/659d21c2255154e5bd8c163a
+GET {{baseUrl}}/{{urlPath}}/ticket/659d385ba72504ee3b943aef
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
-###
-PUT {{baseUrl}}/{{urlPath}}/show/659d21c2255154e5bd8c163a
+### 
+PUT {{baseUrl}}/{{urlPath}}/ticket/659d385ba72504ee3b943aef
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "hall": "659d017cd61801ac6591a2c0",
   "movie": "659c0fcc68f64efa7ba35488",
-  "time": "16:00",
-  "date": "06.06.2024"
+  "show": "659d2078255154e5bd8c1633",
+  "seat": "A 13"
 }
 
 ###
-DELETE {{baseUrl}}/{{urlPath}}/show/659d21a6255154e5bd8c1637
+DELETE {{baseUrl}}/{{urlPath}}/ticket/659d3825a72504ee3b943aec
 Content-Type: application/json
 Accept: application/json
 withCredentials: true

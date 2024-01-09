@@ -5,7 +5,7 @@ const showSchema: Schema = new Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", index: true },
   username: { type: String, default: "" },
   hall: { type: mongoose.Schema.Types.ObjectId, ref: "Hall", index: true },
-  movie: { type: String, default: "" },
+  movie: { type: mongoose.Schema.Types.ObjectId, ref: "Movie", index: true },
   time: { type: String, default: "" },
   date: { type: String, default: "" },
   createdAt: { type: Date, default: Date.now }

@@ -6,7 +6,7 @@ export interface IShowDocument extends Document {
   userId: string | ObjectId;
   username: string;
   hall: string | ObjectId;
-  movie: string;
+  movie: string | ObjectId;
   time: string;
   date: string;
   createdAt?: Date;
@@ -17,7 +17,7 @@ export interface IShowData {
   userId: string | ObjectId;
   username: string;
   hall: string | ObjectId;
-  movie: string;
+  movie: string | ObjectId;
   time: string;
   date: string;
   createdAt?: Date;
