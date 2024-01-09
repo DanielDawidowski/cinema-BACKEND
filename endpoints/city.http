@@ -9,18 +9,17 @@ Accept: application/json
 withCredentials: true
 
   {
-    "name": "wrocław",
-    "halls": ["652a5be8cf84fd82374f2388", "652a5be8cf84fd82374f2388"]
+    "name": "wrocław"
   }
 
-###
+###  
 GET {{baseUrl}}/{{urlPath}}/cities
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/city/652a8b615695426c6a00ead4
+GET {{baseUrl}}/{{urlPath}}/city/652a765d8ee80dbe4a255a24
 Content-Type: application/json
 Accept: application/json
 withCredentials: true

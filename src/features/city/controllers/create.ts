@@ -9,17 +9,16 @@ import { cityService } from "@service/db/city.service";
 export class Create {
   @joiValidation(citySchema)
   public async create(req: Request, res: Response): Promise<void> {
-    const { name, halls } = req.body;
+    const { name } = req.body;
     const messageObjectId: ObjectId = new ObjectId();
 
     const cityData: ICityDocument = {
       _id: `${messageObjectId}`,
       name,
-      halls,
       createdAt: new Date()
     } as ICityDocument;
-    await cityService.addCityToDB(cityData);
 
+    await cityService.addCityToDB(cityData);
     res.status(HTTP_STATUS.OK).json({ message: "City added", cityData: cityData });
   }
 }

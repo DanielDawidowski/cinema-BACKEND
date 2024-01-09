@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 
 export interface IHallDocument extends Document {
   _id: string | ObjectId;
+  city: string | ObjectId;
   hallNumber: number;
   seats: ISeat[];
   createdAt?: Date;
@@ -10,6 +11,7 @@ export interface IHallDocument extends Document {
 
 export interface IHallData {
   _id: string | ObjectId;
+  city: string | ObjectId;
   hallNumber: number;
   seats: ISeat[];
   createdAt?: Date;

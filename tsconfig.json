@@ -26,6 +26,7 @@
       "@city/*": ["src/features/city/*"],
       "@hall/*": ["src/features/hall/*"],
       "@movie/*": ["src/features/movie/*"],
+      "@show/*": ["src/features/show/*"],
       "@global/*": ["src/shared/globals/*"],
       "@service/*": ["src/shared/services/*"],
       "@root/*": ["src/*"]

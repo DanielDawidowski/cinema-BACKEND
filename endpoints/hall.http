@@ -10,7 +10,8 @@ withCredentials: true
 
   {
     "hallNumber": 2,
-     "seats": [
+    "city": "659c4664e3d4fc3f6978490e",
+    "seats": [
         {
           "row": "A",
           "seat": 1,
@@ -98,7 +99,8 @@ withCredentials: true
 
   {
     "hallNumber": 2,
-     "seats": [
+      "city": "659c464ee3d4fc3f69784908",
+      "seats": [
         {
           "row": "A",
           "seat": 1,

@@ -3,6 +3,7 @@ import { IHallDocument } from "@hall/interfaces/hall.interface";
 
 const hallSchema: Schema = new Schema({
   hallNumber: { type: Number, default: 0 },
+  city: { type: String, default: "" },
   seats: [
     {
       row: { type: String, default: "" },

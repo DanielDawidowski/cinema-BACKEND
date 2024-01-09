@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import HTTP_STATUS from "http-status-codes";
 import { ObjectId } from "mongodb";
+import { UploadApiResponse } from "cloudinary";
 import { IMovieDocument } from "@movie/interfaces/movie.interface";
 import { joiValidation } from "@global/decorators/joi-validation.decorators";
 import { movieSchema } from "@movie/schemes/movie.scheme";
 import { BadRequestError } from "@global/helpers/error-handler";
-import { UploadApiResponse } from "cloudinary";
 import { uploads } from "@global/helpers/cloudinary-upload";
 import { movieService } from "@service/db/movie.service";
 

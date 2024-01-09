@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:5000
+@urlPath = api/v1
+
+
+###   
+POST {{baseUrl}}/{{urlPath}}/show
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "hall": "659d017cd61801ac6591a2c0",
+  "movie": "659c0fcc68f64efa7ba35488",
+  "time": "14:00",
+  "date": "06.06.2024"
+}
+
+###
+GET {{baseUrl}}/{{urlPath}}/shows
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+GET {{baseUrl}}/{{urlPath}}/show/659d21c2255154e5bd8c163a
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+PUT {{baseUrl}}/{{urlPath}}/show/659d21c2255154e5bd8c163a
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "hall": "659d017cd61801ac6591a2c0",
+  "movie": "659c0fcc68f64efa7ba35488",
+  "time": "16:00",
+  "date": "06.06.2024"
+}
+
+###
+DELETE {{baseUrl}}/{{urlPath}}/show/659d21a6255154e5bd8c1637
+Content-Type: application/json
+Accept: application/json
+withCredentials: true

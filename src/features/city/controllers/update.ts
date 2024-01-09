@@ -9,11 +9,10 @@ export class Update {
   @joiValidation(citySchema)
   public async city(req: Request, res: Response): Promise<void> {
     const { cityId } = req.params;
-    const { name, halls } = req.body;
+    const { name } = req.body;
     const updatedCity: ICityDocument = {
       _id: cityId,
-      name,
-      halls
+      name
     } as ICityDocument;
     await cityService.updateCity(cityId, updatedCity);
     res.status(HTTP_STATUS.OK).json({ message: "City updated", updatedCity });

@@ -12,7 +12,7 @@ class CityRoutes {
     this.router = express.Router();
   }
   public routes(): Router {
-    this.router.post("/city", authMiddleware.checkAuthentication, Create.prototype.create);
+    this.router.post("/city", authMiddleware.verifyUser, Create.prototype.create);
     this.router.get("/cities", Get.prototype.cities);
     this.router.get("/city/:cityId", Get.prototype.city);
     this.router.put("/city/:cityId", Update.prototype.city);
