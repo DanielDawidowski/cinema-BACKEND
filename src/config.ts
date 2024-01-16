@@ -14,6 +14,8 @@ class Config {
   public CLOUDINARY_NAME: string | undefined;
   public CLOUDINARY_API_KEY: string | undefined;
   public CLOUDINARY_API_SECRET: string | undefined;
+  public SENDER_EMAIL: string | undefined;
+  public SENDER_EMAIL_PASSWORD: string | undefined;
 
   private readonly DEFAULT_DB_URL = "mongodb://127.0.0.1:27017/cinema";
 
@@ -27,6 +29,8 @@ class Config {
     this.CLOUDINARY_NAME = process.env.CLOUDINARY_NAME || "";
     this.CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || "";
     this.CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET || "";
+    this.SENDER_EMAIL = process.env.SENDER_EMAIL || "";
+    this.SENDER_EMAIL_PASSWORD = process.env.SENDER_EMAIL_PASSWORD || "";
   }
 
   public createLogger(name: string): bunyan {

@@ -45,3 +45,10 @@ export interface ISignUpData {
 export interface IAuthJob {
   value?: string | IAuthDocument | IUserDocument;
 }
+
+export interface IResetPasswordParams {
+  username: string;
+  email: string;
+  ipaddress: string;
+  date: string;
+}

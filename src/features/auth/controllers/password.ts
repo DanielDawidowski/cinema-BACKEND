@@ -1,11 +1,18 @@
 import crypto from "crypto";
 import HTTP_STATUS from "http-status-codes";
 import { Request, Response } from "express";
+import moment from "moment";
+import publicIP from "ip";
 import { IAuthDocument } from "@auth/interfaces/auth.interface";
 import { BadRequestError } from "@global/helpers/error-handler";
 import { authService } from "@service/db/auth.service";
 import { joiValidation } from "@global/decorators/joi-validation.decorators";
 import { emailSchema, passwordSchema } from "@auth/schemes/password";
+import { mailTransport } from "@service/emails/mail.transport";
+import { forgotPasswordTemplate } from "@service/emails/templates/forgot-password/forgot-password-template";
+import { config } from "@root/config";
+import { IResetPasswordParams } from "@user/interfaces/user.interface";
+import { resetPasswordTemplate } from "@service/emails/templates/reset-password/reset-password-template";
 
 export class Password {
   @joiValidation(emailSchema)
@@ -19,6 +26,11 @@ export class Password {
     const randomBytes: Buffer = await Promise.resolve(crypto.randomBytes(20));
     const randomCharacters: string = randomBytes.toString("hex");
     await authService.updatePasswordToken(`${existingUser._id!}`, randomCharacters, Date.now() * 60 * 60 * 1000);
+
+    const resetLink = `${config.CLIENT_URL!}/reset-password?token=${randomCharacters}`;
+    const template: string = forgotPasswordTemplate.passwordResetTemplate(existingUser.username, resetLink);
+    const subject = "Reset your password";
+    await mailTransport.sendEmail(email, subject, template);
 
     res.status(HTTP_STATUS.OK).json({ message: "Password reset email sent." });
   }
@@ -39,6 +51,16 @@ export class Password {
     existingUser.passwordResetExpires = undefined;
     existingUser.passwordResetToken = undefined;
     await existingUser.save();
+
+    const templateParams: IResetPasswordParams = {
+      username: existingUser.username!,
+      email: existingUser.email!,
+      ipaddress: publicIP.address(),
+      date: moment().format("DD//MM//YYYY HH:mm")
+    };
+    const template: string = resetPasswordTemplate.passwordResetConfirmationTemplate(templateParams);
+    const subject = "Password Reset Confirmation";
+    await mailTransport.sendEmail(existingUser.email!, subject, template);
 
     res.status(HTTP_STATUS.OK).json({ message: "Password successfully updated." });
   }

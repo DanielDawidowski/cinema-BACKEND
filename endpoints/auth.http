@@ -8,9 +8,9 @@ Accept: application/json
 withCredentials: true
 
   {
-    "username": "romek",
+    "username": "daniel",
     "password": "qwerty",
-    "email": "romek@gmail.com"
+    "email": "dvds1987@gmail.com"
   }
 
 
@@ -21,7 +21,7 @@ Accept: application/json
 withCredentials: true
 
   {
-    "username": "romek",
+    "email": "dvds1987@gmail.com",
     "password": "qwerty"
   }
 
