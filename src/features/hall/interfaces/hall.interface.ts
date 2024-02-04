@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export interface IHallDocument extends Document {
   _id: string | ObjectId;
-  city: string | ObjectId;
+  city: string;
   hallNumber: number;
   seats: ISeat[];
   createdAt?: Date;
@@ -11,7 +11,7 @@ export interface IHallDocument extends Document {
 
 export interface IHallData {
   _id: string | ObjectId;
-  city: string | ObjectId;
+  city: string;
   hallNumber: number;
   seats: ISeat[];
   createdAt?: Date;
@@ -19,11 +19,9 @@ export interface IHallData {
 
 export interface ISeat {
   row: string;
-  seat: number;
-  price: number;
+  seat: string;
   status: SeatStatus;
   type: SeatType;
-  color: string;
 }
 
 export enum SeatStatus {

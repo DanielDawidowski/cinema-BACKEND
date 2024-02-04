@@ -28,24 +28,13 @@ export interface IMovieData {
 }
 
 export enum IMovieCategory {
-  COMEDY = "COMEDY",
-  HORROR = "HORROR",
-  THRILLER = "THRILLER",
-  DRAMA = "DRAMA",
-  FANTASY = "FANTASY",
-  ADVENTURE = "ADVENTURE",
-  ACTION = "ACTION",
-  ROMANCE = "ROMANCE",
-  CRIME = "CRIME",
-  ANIMATION = "ANIMATION",
-  BIOGRAPHY = "BIOGRAPHY",
-  DOCUMENTARY = "DOCUMENTARY",
-  FAMILY = "FAMILY",
-  HISTORY = "HISTORY",
-  MUSIC = "MUSIC",
-  MYSTERY = "MYSTERY",
-  SCI_FI = "SCI_FI",
-  SPORT = "SPORT",
-  WAR = "WAR",
-  WESTERN = "WESTERN"
+  comedy = "COMEDY",
+  thriller = "THRILLER",
+  action = "ACTION",
+  drama = "DRAMA",
+  animation = "ANIMATION",
+  biography = "BIOGRAPHY",
+  adventure = "ADVENTURE",
+  crime = "CRIME",
+  history = "HISTORY"
 }

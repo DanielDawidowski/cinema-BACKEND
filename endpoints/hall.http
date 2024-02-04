@@ -10,71 +10,55 @@ withCredentials: true
 
   {
     "hallNumber": 2,
-    "city": "659c4664e3d4fc3f6978490e",
+    "city": "gdańsk",
     "seats": [
         {
           "row": "A",
-          "seat": 1,
-          "price": 100,
+          "seat": "1",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 2,
-          "price": 100,
+          "seat": "2",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 3,
-          "price": 100,
+          "seat": "3",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 4,
-          "price": 100,
+          "seat": "4",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 5,
-          "price": 100,
+          "seat": "5",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 6,
-          "price": 100,
+          "seat": "6",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 7,
-          "price": 100,
+          "seat": "7",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 8,
-          "price": 100,
+          "seat": "8",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         }
       ]
   }
@@ -99,71 +83,57 @@ withCredentials: true
 
   {
     "hallNumber": 2,
-      "city": "659c464ee3d4fc3f69784908",
+      "city": "wrocław",
       "seats": [
         {
           "row": "A",
-          "seat": 1,
+          "seat": "1",
           "price": 10,
           "status": "FREE",
-          "type": "VIP",
-          "color": "black"
+          "type": "VIP"
         },
         {
           "row": "A",
-          "seat": 2,
+          "seat": "2",
           "price": 10,
           "status": "FREE",
-          "type": "VIP",
-          "color": "black"
+          "type": "VIP"
         },
         {
           "row": "A",
-          "seat": 3,
-          "price": 100,
+          "seat": "3",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 4,
-          "price": 100,
+          "seat": "4",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 5,
-          "price": 100,
+          "seat": "5",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 6,
-          "price": 100,
+          "seat": "6",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         },
         {
           "row": "A",
-          "seat": 7,
-          "price": 100,
+          "seat": "7",
           "status": "FREE",
           "type": "STANDARD",
-          "color": "black"
         },
         {
           "row": "A",
-          "seat": 8,
-          "price": 100,
+          "seat": "8",
           "status": "FREE",
-          "type": "STANDARD",
-          "color": "black"
+          "type": "STANDARD"
         }
       ]
   }

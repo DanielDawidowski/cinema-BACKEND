@@ -6,10 +6,8 @@ const hallSchema: ObjectSchema = Joi.object().keys({
   seats: Joi.array().items({
     row: Joi.string().optional().allow(null, "").required(),
     seat: Joi.number().optional().allow(null, 0).required(),
-    price: Joi.number().optional().allow(null, 0).required(),
     status: Joi.string().optional().allow(null, "").required(),
-    type: Joi.string().optional().allow(null, "").required(),
-    color: Joi.string().optional().allow(null, "").required()
+    type: Joi.string().optional().allow(null, "").required()
   })
 });
 

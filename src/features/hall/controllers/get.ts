@@ -6,12 +6,12 @@ export class Get {
   public async halls(req: Request, res: Response): Promise<void> {
     const list = await hallService.getHalls();
     const totalHalls = list.length;
-    res.status(HTTP_STATUS.OK).json({ message: "Halls list", totalHalls, list });
+    res.status(HTTP_STATUS.OK).json({ totalHalls, list });
   }
 
   public async hall(req: Request, res: Response): Promise<void> {
     const { hallId } = req.params;
     const hall = await hallService.getHall(hallId);
-    res.status(HTTP_STATUS.OK).json({ message: "Hall", hall });
+    res.status(HTTP_STATUS.OK).json({ hall });
   }
 }

@@ -8,10 +8,8 @@ const hallSchema: Schema = new Schema({
     {
       row: { type: String, default: "" },
       seat: { type: Number, default: 0 },
-      price: { type: Number, default: 0 },
       status: { type: String, default: "" },
-      type: { type: String, default: "" },
-      color: { type: String, default: "" }
+      type: { type: String, default: "" }
     }
   ],
   createdAt: { type: Date, default: Date.now }
