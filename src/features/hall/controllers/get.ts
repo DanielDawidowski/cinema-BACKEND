@@ -14,4 +14,11 @@ export class Get {
     const hall = await hallService.getHall(hallId);
     res.status(HTTP_STATUS.OK).json({ hall });
   }
+
+  public async hallByCity(req: Request, res: Response): Promise<void> {
+    const { city } = req.params;
+    const list = await hallService.getHallByCity(city);
+    const totalHalls = list.length;
+    res.status(HTTP_STATUS.OK).json({ totalHalls, list });
+  }
 }

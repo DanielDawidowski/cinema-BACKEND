@@ -13,9 +13,9 @@ const showSchema: ObjectSchema = Joi.object().keys({
     "any.required": "Time is a required field",
     "string.empty": "Time property is not allowed to be empty"
   }),
-  date: Joi.string().required().messages({
-    "any.required": "Date is a required field",
-    "date.base": "Date must be a valid date"
+  city: Joi.string().required().messages({
+    "any.required": "City is a required field",
+    "string.empty": "City property is not allowed to be empty"
   })
 });
 

@@ -10,6 +10,8 @@ const movieSchema: Schema = new Schema({
   imgVersion: { type: String, default: "" },
   category: [{ type: String, default: "" }],
   description: { type: String, default: "" },
+  director: { type: String, default: "" },
+  actors: [{ type: String, default: "" }],
   createdAt: { type: Date, default: Date.now }
 });
 

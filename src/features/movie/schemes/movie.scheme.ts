@@ -16,6 +16,14 @@ const movieSchema: ObjectSchema = Joi.object().keys({
   description: Joi.string().required().messages({
     "any.required": "Description is a required field",
     "string.empty": "Description property is not allowed to be empty"
+  }),
+  director: Joi.string().required().messages({
+    "any.required": "Director is a required field",
+    "string.empty": "Director property is not allowed to be empty"
+  }),
+  actors: Joi.array().items(Joi.string()).required().messages({
+    "any.required": "Actors is a required field",
+    "string.empty": "Actors property is not allowed to be empty"
   })
 });
 

@@ -70,32 +70,36 @@ Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/hall/652baa6242e5fe895fca4561
+GET {{baseUrl}}/{{urlPath}}/halls/WARSAW
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-PUT {{baseUrl}}/{{urlPath}}/hall/652baa6242e5fe895fca4561
+GET {{baseUrl}}/{{urlPath}}/hall/65b0171b9757e8662a2cca1e
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+PUT {{baseUrl}}/{{urlPath}}/hall/65b0171b9757e8662a2cca1e
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
   {
-    "hallNumber": 2,
-      "city": "wrocław",
+      "hallNumber": 3,
+      "city": "BERLIN",
       "seats": [
         {
           "row": "A",
           "seat": "1",
-          "price": 10,
           "status": "FREE",
           "type": "VIP"
         },
         {
           "row": "A",
           "seat": "2",
-          "price": 10,
           "status": "FREE",
           "type": "VIP"
         },
@@ -127,7 +131,7 @@ withCredentials: true
           "row": "A",
           "seat": "7",
           "status": "FREE",
-          "type": "STANDARD",
+          "type": "STANDARD"
         },
         {
           "row": "A",

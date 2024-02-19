@@ -24,12 +24,14 @@ export class Update {
   }
 
   private async updatedMovie(req: Request): Promise<void> {
-    const { name, category, description, imgId, imgVersion } = req.body;
+    const { name, category, description, director, actors, imgId, imgVersion } = req.body;
     const { movieId } = req.params;
     const updatedMovie: IMovieDocument = {
       name,
       category,
       description,
+      director,
+      actors,
       imgId: imgId ? imgId : "",
       imgVersion: imgVersion ? imgVersion : ""
     } as IMovieDocument;
@@ -38,7 +40,7 @@ export class Update {
   }
 
   private async addImageToExistingMovie(req: Request): Promise<UploadApiResponse> {
-    const { name, category, description, img } = req.body;
+    const { name, category, description, director, actors, img } = req.body;
     const { movieId } = req.params;
     const result: UploadApiResponse = (await uploads(img)) as UploadApiResponse;
 
@@ -50,6 +52,8 @@ export class Update {
       name,
       category,
       description,
+      director,
+      actors,
       imgId: img ? result.public_id : "",
       imgVersion: img ? result.version.toString() : ""
     } as IMovieDocument;

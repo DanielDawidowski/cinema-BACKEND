@@ -8,6 +8,8 @@ export interface IMovieDocument extends Document {
   name: string;
   category: IMovieCategory[];
   description: string;
+  director: string;
+  actors: string[];
   img: string;
   imgId?: string;
   imgVersion?: string;
@@ -21,6 +23,8 @@ export interface IMovieData {
   name: string;
   category: IMovieCategory[];
   description: string;
+  director: string;
+  actors: string[];
   img: string;
   imgId?: string;
   imgVersion?: string;

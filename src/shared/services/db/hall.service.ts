@@ -17,6 +17,11 @@ class HallService {
     return hall;
   }
 
+  public async getHallByCity(city: string): Promise<IHallData[]> {
+    const hall = (await HallModel.find({ city })) as IHallData[];
+    return hall;
+  }
+
   public async updateHall(_id: string, hallData: Partial<IHallData>): Promise<IHallData | null> {
     const updatedHall: IHallData | null = await HallModel.findOneAndUpdate({ _id }, { $set: hallData }, { new: true });
     return updatedHall;

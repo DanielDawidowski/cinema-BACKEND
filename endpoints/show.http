@@ -11,8 +11,7 @@ withCredentials: true
 {
   "hall": "659d017cd61801ac6591a2c0",
   "movie": "659c0fcc68f64efa7ba35488",
-  "time": "20:00",
-  "date": "06.06.2024"
+  "time": "20:00"
 }
 
 ###
@@ -22,7 +21,20 @@ Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/show/659d21c2255154e5bd8c163a
+GET {{baseUrl}}/{{urlPath}}/shows/movie/65c9d733f25ebd72f4ad922e
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+GET {{baseUrl}}/{{urlPath}}/shows/PARIS/65c9d733f25ebd72f4ad922e
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+
+###
+GET {{baseUrl}}/{{urlPath}}/shows/city/AMSTERDAM
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
@@ -36,8 +48,7 @@ withCredentials: true
 {
   "hall": "659d017cd61801ac6591a2c0",
   "movie": "659c0fcc68f64efa7ba35488",
-  "time": "16:00",
-  "date": "06.06.2024"
+  "time": "16:00"
 }
 
 ###

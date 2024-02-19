@@ -9,15 +9,15 @@ export class Update {
   @joiValidation(showSchema)
   public async show(req: Request, res: Response): Promise<void> {
     const { showId } = req.params;
-    const { time, hall, movie, date } = req.body;
+    const { time, hall, movie, city } = req.body;
     const updatedShow: IShowDocument = {
       _id: showId,
       userId: req.currentUser!.userId,
       username: req.currentUser!.username,
       hall,
       movie,
+      city,
       time,
-      date,
       createdAt: new Date()
     } as IShowDocument;
 

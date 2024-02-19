@@ -12,7 +12,7 @@ import { movieService } from "@service/db/movie.service";
 export class Create {
   @joiValidation(movieSchema)
   public async movie(req: Request, res: Response): Promise<void> {
-    const { name, img, category, description } = req.body;
+    const { name, img, category, description, director, actors } = req.body;
 
     const result: UploadApiResponse = (await uploads(img)) as UploadApiResponse;
     if (!result?.public_id) {
@@ -27,6 +27,8 @@ export class Create {
       name,
       category,
       description,
+      director,
+      actors,
       img: `https://res.cloudinary.com/dandawid/image/upload/v${result.version}/${result.public_id}`,
       imgVersion: result.version.toString(),
       imgId: result.public_id,
@@ -41,7 +43,7 @@ export class Create {
   }
 
   private movieData(data: IMovieDocument, movieObjectId: ObjectId): IMovieDocument {
-    const { name, category, description, img } = data;
+    const { name, category, description, director, actors, img } = data;
     const createdMovie: IMovieDocument = {
       _id: movieObjectId,
       userId: data.userId,
@@ -49,6 +51,8 @@ export class Create {
       name,
       category,
       description,
+      director,
+      actors,
       img,
       imgId: "",
       imgVersion: "",

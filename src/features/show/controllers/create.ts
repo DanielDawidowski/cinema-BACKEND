@@ -9,16 +9,16 @@ import { showService } from "@service/db/show.service";
 export class Create {
   @joiValidation(showSchema)
   public async show(req: Request, res: Response): Promise<void> {
-    const { time, hall, movie, date } = req.body;
+    const { time, hall, movie, city } = req.body;
     const showObjectId: ObjectId = new ObjectId();
     const createdShow: IShowDocument = {
       _id: showObjectId,
       userId: req.currentUser!.userId,
       username: req.currentUser!.username,
+      city,
       hall,
       movie,
       time,
-      date,
       createdAt: new Date()
     } as IShowDocument;
 

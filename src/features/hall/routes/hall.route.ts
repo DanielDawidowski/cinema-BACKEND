@@ -15,6 +15,7 @@ class HallRoutes {
     this.router.post("/hall", authMiddleware.verifyUser, Create.prototype.create);
     this.router.get("/halls", Get.prototype.halls);
     this.router.get("/hall/:hallId", Get.prototype.hall);
+    this.router.get("/halls/:city", Get.prototype.hallByCity);
     this.router.put("/hall/:hallId", authMiddleware.verifyUser, Update.prototype.hall);
     this.router.delete("/hall/:hallId", authMiddleware.verifyUser, Delete.prototype.hall);
     return this.router;
