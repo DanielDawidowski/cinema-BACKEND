@@ -19,6 +19,7 @@ export class Get {
     const { city, movieId } = req.params;
     const list = await showService.getShowByFilter({ city, movieId });
     const totalShows = list.length;
+
     res.status(HTTP_STATUS.OK).json({ totalShows, list });
   }
 

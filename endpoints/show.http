@@ -15,7 +15,7 @@ withCredentials: true
 }
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows
+GET {{baseUrl}}/{{urlPath}}/shows/all
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
@@ -27,14 +27,13 @@ Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/PARIS/65c9d733f25ebd72f4ad922e
+GET {{baseUrl}}/{{urlPath}}/shows/BERLIN
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
-
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/city/AMSTERDAM
+GET {{baseUrl}}/{{urlPath}}/shows/city/BERLIN
 Content-Type: application/json
 Accept: application/json
 withCredentials: true

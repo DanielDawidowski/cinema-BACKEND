@@ -7,11 +7,6 @@ class ShowService {
     return show;
   }
 
-  public async getShows(): Promise<IShowData[]> {
-    const halls = await ShowModel.find();
-    return halls;
-  }
-
   public async totalShows(): Promise<number> {
     const count: number = await ShowModel.find({}).countDocuments();
     return count;
@@ -22,15 +17,26 @@ class ShowService {
     return show;
   }
 
-  public async getShowByFilter(filter: IMovieQuery): Promise<IShowData[]> {
-    const { city, movieId } = filter;
-    if (filter) {
-      const show = (await ShowModel.find({ city, movie: movieId })) as IShowData[];
-      return show;
+  public async getShowByFilter(query: IMovieQuery): Promise<IShowData[]> {
+    const { city, movieId } = query;
+    if (city && !movieId && city?.length !== 24) {
+      const shows = this.getShowByCity(city);
+      return shows;
+    } else if (city?.length === 24) {
+      const shows = this.getShowByMovie(city);
+      return shows;
+    } else if (city && movieId) {
+      const shows = (await ShowModel.find({ city, movie: movieId })) as IShowData[];
+      return shows;
     } else {
-      const show = (await ShowModel.find()) as IShowData[];
-      return show;
+      const shows = this.getShows();
+      return shows;
     }
+  }
+
+  public async getShows(): Promise<IShowData[]> {
+    const shows = await ShowModel.find();
+    return shows;
   }
 
   public async getShowByCity(city: string): Promise<IShowData[]> {

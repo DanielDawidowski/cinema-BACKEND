@@ -13,7 +13,7 @@ class ShowRoutes {
   }
   public routes(): Router {
     this.router.post("/show", authMiddleware.verifyUser, Create.prototype.show);
-    this.router.get("/shows", Get.prototype.shows);
+    this.router.get("/shows/all", Get.prototype.shows);
     this.router.get("/show/:showId", Get.prototype.show);
     this.router.get("/shows/city/:city", Get.prototype.getShowByCity);
     this.router.get("/shows/movie/:movieId", Get.prototype.getShowByMovie);
