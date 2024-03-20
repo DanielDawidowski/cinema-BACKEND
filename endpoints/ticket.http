@@ -11,7 +11,25 @@ withCredentials: true
 {
   "movie": "659c0fcc68f64efa7ba35488",
   "show": "659d2078255154e5bd8c1633",
-  "seat": "A 12"
+  "seats": [
+        {
+          "row": "A",
+          "seat": "1",
+          "status": "FREE",
+          "type": "STANDARD"
+        },
+        {
+          "row": "A",
+          "seat": "2",
+          "status": "FREE",
+          "type": "STANDARD"
+        }],
+  "price": 20,
+  "name": {
+    "name": "Daniel",
+    "lastName": "Daniel",
+    "email": "dd@wp.pl"
+  }
 }
 
 ###
@@ -35,7 +53,20 @@ withCredentials: true
 {
   "movie": "659c0fcc68f64efa7ba35488",
   "show": "659d2078255154e5bd8c1633",
-  "seat": "A 13"
+  "seats": [
+        {
+          "row": "A",
+          "seat": "1",
+          "status": "FREE",
+          "type": "STANDARD"
+        },
+        {
+          "row": "A",
+          "seat": "2",
+          "status": "FREE",
+          "type": "STANDARD"
+        }],
+  "price": 20
 }
 
 ###

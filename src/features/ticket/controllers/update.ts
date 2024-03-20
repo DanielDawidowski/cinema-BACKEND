@@ -9,16 +9,18 @@ export class Update {
   @joiValidation(ticketSchema)
   public async ticket(req: Request, res: Response): Promise<void> {
     const { ticketId } = req.params;
-    const { show, movie, seat } = req.body;
-    const createdTicket: ITicketDocument = {
+    const { show, movie, seats, price, name } = req.body;
+    const updatedTicket: ITicketDocument = {
       _id: ticketId,
       movie,
       show,
-      seat,
+      seats,
+      price,
+      name,
       createdAt: new Date()
     } as ITicketDocument;
 
-    await ticketService.updateTicket(ticketId, createdTicket);
-    res.status(HTTP_STATUS.CREATED).json({ message: "Ticket added", createdTicket });
+    await ticketService.updateTicket(ticketId, updatedTicket);
+    res.status(HTTP_STATUS.CREATED).json({ message: "Ticket updated", updatedTicket });
   }
 }
