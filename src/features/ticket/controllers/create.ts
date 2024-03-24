@@ -9,11 +9,10 @@ import { ticketService } from "@service/db/ticket.service";
 export class Create {
   @joiValidation(ticketSchema)
   public async ticket(req: Request, res: Response): Promise<void> {
-    const { show, movie, seats, price, name } = req.body;
+    const { show, seats, price, name } = req.body;
     const ticketObjectId: ObjectId = new ObjectId();
     const createdTicket: ITicketDocument = {
       _id: ticketObjectId,
-      movie,
       show,
       seats,
       price,

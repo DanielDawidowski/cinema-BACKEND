@@ -1,13 +1,27 @@
 import Joi, { ObjectSchema } from "joi";
 
 const ticketSchema: ObjectSchema = Joi.object().keys({
-  movie: Joi.string().required().messages({
-    "any.required": "Movie is a required field",
-    "string.empty": "Movie property is not allowed to be empty"
-  }),
-  show: Joi.string().required().messages({
-    "any.required": "Time is a required field",
-    "string.empty": "Time property is not allowed to be empty"
+  show: Joi.object({
+    _id: Joi.string().required().messages({
+      "string.base": "_id must be of type string",
+      "string.empty": "_id is a required field"
+    }),
+    city: Joi.string().required().messages({
+      "string.base": "City must be of type string",
+      "string.empty": "City is a required field"
+    }),
+    hall: Joi.string().required().messages({
+      "string.base": "Hall must be valid",
+      "string.required": "Hall must be valid"
+    }),
+    movie: Joi.string().required().messages({
+      "string.base": "Movie must be valid",
+      "string.required": "Movie must be valid"
+    }),
+    time: Joi.string().required().messages({
+      "string.base": "Time must be valid",
+      "string.required": "Time must be valid"
+    })
   }),
   seats: Joi.array().items({
     row: Joi.string().optional().allow(null, "").required().messages({
@@ -25,6 +39,10 @@ const ticketSchema: ObjectSchema = Joi.object().keys({
     type: Joi.string().optional().allow(null, "").required().messages({
       "any.required": "Type is a required field",
       "string.empty": "Type property is not allowed to be empty"
+    }),
+    price: Joi.number().optional().allow(null, "").required().messages({
+      "any.required": "Price is a required field",
+      "string.empty": "Price property is not allowed to be empty"
     })
   }),
   price: Joi.number().optional().allow(null, 0).required().messages({

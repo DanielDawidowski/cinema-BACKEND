@@ -2,8 +2,13 @@ import mongoose, { Model, model, Schema } from "mongoose";
 import { ITicketDocument } from "@ticket/interfaces/ticket.interface";
 
 const ticketSchema: Schema = new Schema({
-  movie: { type: String, default: "" },
-  show: { type: mongoose.Schema.Types.ObjectId, ref: "Show", index: true },
+  show: {
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: "Show", index: true },
+    city: { type: String, default: "" },
+    hall: { type: String, default: "" },
+    movie: { type: String, default: "" },
+    time: { type: String, default: "" }
+  },
   seats: [
     {
       row: { type: String, default: "" },

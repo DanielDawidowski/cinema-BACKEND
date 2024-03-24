@@ -9,7 +9,6 @@ Accept: application/json
 withCredentials: true
 
 {
-  "movie": "659c0fcc68f64efa7ba35488",
   "show": "659d2078255154e5bd8c1633",
   "seats": [
         {
@@ -32,6 +31,31 @@ withCredentials: true
   }
 }
 
+###   
+POST {{baseUrl}}/{{urlPath}}/checkout
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "seats": [
+    {
+      "row": "A",
+      "seat": "1",
+      "status": "FREE",
+      "type": "STANDARD",
+      "price": 10
+    },
+    {
+      "row": "A",
+      "seat": "2",
+      "status": "FREE",
+      "type": "STANDARD",
+      "price": 10
+    }
+  ]   
+}
+
 ###
 GET {{baseUrl}}/{{urlPath}}/tickets
 Content-Type: application/json
@@ -51,7 +75,6 @@ Accept: application/json
 withCredentials: true
 
 {
-  "movie": "659c0fcc68f64efa7ba35488",
   "show": "659d2078255154e5bd8c1633",
   "seats": [
         {

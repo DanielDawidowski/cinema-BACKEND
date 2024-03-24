@@ -9,10 +9,9 @@ export class Update {
   @joiValidation(ticketSchema)
   public async ticket(req: Request, res: Response): Promise<void> {
     const { ticketId } = req.params;
-    const { show, movie, seats, price, name } = req.body;
+    const { show, seats, price, name } = req.body;
     const updatedTicket: ITicketDocument = {
       _id: ticketId,
-      movie,
       show,
       seats,
       price,
