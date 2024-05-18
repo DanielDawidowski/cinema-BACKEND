@@ -68,7 +68,7 @@ GET {{baseUrl}}/{{urlPath}}/halls
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
-
+ 
 ###
 GET {{baseUrl}}/{{urlPath}}/halls/WARSAW
 Content-Type: application/json

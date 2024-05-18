@@ -6,7 +6,11 @@ const showSchema: Schema = new Schema({
   username: { type: String, default: "" },
   city: { type: String, default: "" },
   hall: { type: mongoose.Schema.Types.ObjectId, ref: "Hall", index: true },
-  movie: { type: mongoose.Schema.Types.ObjectId, ref: "Movie", index: true },
+  movie: {
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: "Movie", index: true },
+    name: { type: String, default: "" },
+    img: { type: String, default: "" }
+  },
   time: { type: String, default: "" },
   createdAt: { type: Date, default: Date.now }
 });

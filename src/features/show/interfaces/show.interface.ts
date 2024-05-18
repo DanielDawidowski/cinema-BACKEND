@@ -1,5 +1,6 @@
 import { Document } from "mongoose";
 import { ObjectId } from "mongodb";
+import { IMovieData } from "./../../movie/interfaces/movie.interface";
 
 export interface IShowDocument extends Document {
   _id: string | ObjectId;
@@ -7,7 +8,7 @@ export interface IShowDocument extends Document {
   username: string;
   city: string;
   hall: string | ObjectId;
-  movie: string | ObjectId;
+  movie: IMovieShow;
   time: string;
   createdAt?: Date;
 }
@@ -18,7 +19,7 @@ export interface IShowData {
   username: string;
   city: string;
   hall: string | ObjectId;
-  movie: string | ObjectId;
+  movie: IMovieShow;
   time: string;
   createdAt?: Date;
 }
@@ -27,3 +28,5 @@ export interface IMovieQuery {
   city?: string;
   movieId?: string;
 }
+
+export type IMovieShow = Pick<IMovieData, "_id" | "name" | "img">;

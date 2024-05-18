@@ -26,7 +26,7 @@ class ShowService {
       const shows = this.getShowByMovie(city);
       return shows;
     } else if (city && movieId) {
-      const shows = (await ShowModel.find({ city, movie: movieId })) as IShowData[];
+      const shows = (await ShowModel.find({ city, "movie._id": movieId })) as IShowData[];
       return shows;
     } else {
       const shows = this.getShows();
@@ -45,7 +45,7 @@ class ShowService {
   }
 
   public async getShowByMovie(movieId: string): Promise<IShowData[]> {
-    const show = (await ShowModel.find({ movie: movieId })) as IShowData[];
+    const show = (await ShowModel.find({ "movie._id": movieId })) as IShowData[];
     return show;
   }
 

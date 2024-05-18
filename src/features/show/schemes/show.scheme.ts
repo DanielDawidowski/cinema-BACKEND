@@ -5,9 +5,19 @@ const showSchema: ObjectSchema = Joi.object().keys({
     "any.required": "Hall is a required field",
     "string.empty": "Hall property is not allowed to be empty"
   }),
-  movie: Joi.string().required().messages({
-    "any.required": "Movie is a required field",
-    "string.empty": "Movie property is not allowed to be empty"
+  movie: Joi.object({
+    _id: Joi.string().required().messages({
+      "string.base": "_id must be of type string",
+      "string.empty": "_id is a required field"
+    }),
+    name: Joi.string().required().messages({
+      "string.base": "Name must be of type string",
+      "string.empty": "Name is a required field"
+    }),
+    img: Joi.string().required().messages({
+      "any.required": "Image is a required field",
+      "string.empty": "Image property is not allowed to be empty"
+    })
   }),
   time: Joi.string().required().messages({
     "any.required": "Time is a required field",

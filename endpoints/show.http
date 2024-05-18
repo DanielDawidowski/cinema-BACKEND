@@ -2,16 +2,21 @@
 @urlPath = api/v1
 
 
-###   
+###    
 POST {{baseUrl}}/{{urlPath}}/show
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "hall": "659d017cd61801ac6591a2c0",
-  "movie": "659c0fcc68f64efa7ba35488",
-  "time": "20:00"
+  "hall": "65c499c41a2a9cf889acfd46",
+  "movie": {
+    "_id": "65c9d636f25ebd72f4ad920e",
+    "name": "Barbie",
+    "img":"https://res.cloudinary.com/dandawid/image/upload/v1707745309/l6tfgxsoauixaj5clofg"
+  },
+  "time": "14:00",
+  "city": "AMSTERDAM"
 }
 
 ###
@@ -21,19 +26,19 @@ Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/movie/65c9d733f25ebd72f4ad922e
+GET {{baseUrl}}/{{urlPath}}/shows/movie/65c9d97af25ebd72f4ad925f/1
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/BERLIN
+GET {{baseUrl}}/{{urlPath}}/shows/65c9d692f25ebd72f4ad9227
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
-###
-GET {{baseUrl}}/{{urlPath}}/shows/city/BERLIN
+###  
+GET {{baseUrl}}/{{urlPath}}/shows/city/AMSTERDAM
 Content-Type: application/json
 Accept: application/json
 withCredentials: true

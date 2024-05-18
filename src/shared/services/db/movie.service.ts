@@ -13,7 +13,7 @@ class MovieService {
   }
 
   public async getMovie(id: string): Promise<IMovieDocument> {
-    const movie = (await MovieModel.findById(id)) as IMovieDocument;
+    const movie = (await MovieModel.findOne({ name: id })) as IMovieDocument;
     return movie;
   }
 

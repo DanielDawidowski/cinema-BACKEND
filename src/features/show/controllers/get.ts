@@ -5,8 +5,8 @@ import { showService } from "@service/db/show.service";
 export class Get {
   public async shows(req: Request, res: Response): Promise<void> {
     const list = await showService.getShows();
-    const totalShows = list.length;
-    res.status(HTTP_STATUS.OK).json({ total: totalShows, list });
+    const totalShows = await showService.totalShows();
+    res.status(HTTP_STATUS.OK).json({ totalShows, list });
   }
 
   public async show(req: Request, res: Response): Promise<void> {
@@ -17,10 +17,10 @@ export class Get {
 
   public async showByFilter(req: Request, res: Response): Promise<void> {
     const { city, movieId } = req.params;
-    const list = await showService.getShowByFilter({ city, movieId });
-    const totalShows = list.length;
 
-    res.status(HTTP_STATUS.OK).json({ totalShows, list });
+    const list = await showService.getShowByFilter({ city, movieId });
+
+    res.status(HTTP_STATUS.OK).json({ totalShows: list.length, list });
   }
 
   public async getShowByCity(req: Request, res: Response): Promise<void> {
@@ -30,8 +30,9 @@ export class Get {
     res.status(HTTP_STATUS.OK).json({ totalShows, list });
   }
 
-  public async getShowByMovie(req: Request, res: Response): Promise<void> {
+  public async getShowsByMovie(req: Request, res: Response): Promise<void> {
     const { movieId } = req.params;
+
     const list = await showService.getShowByMovie(movieId);
     const totalShows = list.length;
     res.status(HTTP_STATUS.OK).json({ totalShows, list });
