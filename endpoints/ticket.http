@@ -2,27 +2,38 @@
 @urlPath = api/v1
 
 
-###   
+###  
 POST {{baseUrl}}/{{urlPath}}/ticket
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "show": "659d2078255154e5bd8c1633",
+  "show": {
+    "_id": "659d2078255154e5bd8c1633",
+    "city": "WARSAW",
+    "hall": 1,
+    "movie": {
+       "_id": "65c9d81bf25ebd72f4ad9243",
+       "name": "John Wick: Chapter 4",
+       "img": "https://res.cloudinary.com/dandawid/image/upload/v1707726874/udcmwwwqzajqrstvu7dc"
+    },
+    "time": "18:00"
+  },
   "seats": [
-        {
-          "row": "A",
-          "seat": "1",
-          "status": "FREE",
-          "type": "STANDARD"
-        },
-        {
-          "row": "A",
-          "seat": "2",
-          "status": "FREE",
-          "type": "STANDARD"
-        }],
+   {
+      "row": "A",
+      "seat": "1",
+      "status": "FREE",
+      "type": "STANDARD"
+    },
+    {
+      "row": "A",
+      "seat": "2",
+      "status": "FREE",
+      "type": "STANDARD"
+    }
+  ],
   "price": 20,
   "name": {
     "name": "Daniel",

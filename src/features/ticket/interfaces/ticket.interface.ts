@@ -23,7 +23,6 @@ export interface ITicketData {
 
 export interface ITicketName {
   name: string;
-  lastName: string;
   email: string;
 }
 

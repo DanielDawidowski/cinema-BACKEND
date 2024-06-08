@@ -7,7 +7,7 @@ export interface IShowDocument extends Document {
   userId: string | ObjectId;
   username: string;
   city: string;
-  hall: string | ObjectId;
+  hall: string;
   movie: IMovieShow;
   time: string;
   createdAt?: Date;
@@ -18,7 +18,7 @@ export interface IShowData {
   userId: string | ObjectId;
   username: string;
   city: string;
-  hall: string | ObjectId;
+  hall: string;
   movie: IMovieShow;
   time: string;
   createdAt?: Date;
@@ -26,7 +26,7 @@ export interface IShowData {
 
 export interface IMovieQuery {
   city?: string;
-  movieId?: string;
+  [key: string]: string | undefined;
 }
 
-export type IMovieShow = Pick<IMovieData, "_id" | "name" | "img">;
+export type IMovieShow = Pick<IMovieData, "_id" | "name" | "img" | "category" | "description">;

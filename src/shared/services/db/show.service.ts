@@ -1,4 +1,5 @@
-import { IMovieQuery, IShowData } from "@show/interfaces/show.interface";
+import mongoose from "mongoose";
+import { IShowData } from "@show/interfaces/show.interface";
 import { ShowModel } from "@show/models/show.model";
 
 class ShowService {
@@ -17,36 +18,151 @@ class ShowService {
     return show;
   }
 
-  public async getShowByFilter(query: IMovieQuery): Promise<IShowData[]> {
-    const { city, movieId } = query;
-    if (city && !movieId && city?.length !== 24) {
-      const shows = this.getShowByCity(city);
-      return shows;
-    } else if (city?.length === 24) {
-      const shows = this.getShowByMovie(city);
-      return shows;
-    } else if (city && movieId) {
-      const shows = (await ShowModel.find({ city, "movie._id": movieId })) as IShowData[];
-      return shows;
-    } else {
-      const shows = this.getShows();
-      return shows;
-    }
-  }
+  public async getShowByFilter(movieId?: string, city?: string): Promise<IShowData[]> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matchCriteria: any = {};
 
-  public async getShows(): Promise<IShowData[]> {
-    const shows = await ShowModel.find();
-    return shows;
+    if (movieId) {
+      matchCriteria["movie._id"] = new mongoose.Types.ObjectId(movieId);
+    }
+
+    if (city) {
+      matchCriteria.city = city;
+    }
+
+    const result = await ShowModel.aggregate([
+      {
+        $match: matchCriteria
+      },
+      {
+        $group: {
+          _id: "$movie._id",
+          movie: { $first: "$movie" },
+          shows: {
+            $push: {
+              _id: "$_id",
+              userId: "$userId",
+              username: "$username",
+              city: "$city",
+              hall: "$hall",
+              time: "$time",
+              createdAt: "$createdAt",
+              __v: "$__v"
+            }
+          }
+        }
+      }
+    ]);
+    return result;
+  }
+  // const shows = await ShowModel.aggregate([
+  //   {
+  //     $group: {
+  //       _id: "$movie._id",
+  //       showtimes: {
+  //         $push: {
+  //           time: "$time"
+  //         }
+  //       }
+  //     }
+  //   }
+  // ]);
+  // return shows;
+
+  public async getShows(movieId?: string, city?: string): Promise<IShowData[]> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matchCriteria: any = {};
+
+    if (movieId) {
+      matchCriteria["movie._id"] = new mongoose.Types.ObjectId(movieId);
+    }
+
+    if (city) {
+      matchCriteria.city = city;
+    }
+    const result = await ShowModel.aggregate([
+      {
+        $match: matchCriteria
+      }
+    ]);
+    return result;
   }
 
   public async getShowByCity(city: string): Promise<IShowData[]> {
-    const show = (await ShowModel.find({ city })) as IShowData[];
-    return show;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matchCriteria: any = {};
+
+    if (city) {
+      matchCriteria.city = city;
+    }
+    const result = await ShowModel.aggregate([
+      {
+        $match: matchCriteria
+      },
+      {
+        $sort: { time: 1 }
+      },
+      {
+        $group: {
+          _id: "$movie._id",
+          movie: { $first: "$movie" },
+          shows: {
+            $push: {
+              _id: "$_id",
+              userId: "$userId",
+              username: "$username",
+              city: "$city",
+              hall: "$hall",
+              time: "$time",
+              createdAt: "$createdAt",
+              __v: "$__v"
+            }
+          }
+        }
+      }
+    ]);
+    return result;
   }
 
-  public async getShowByMovie(movieId: string): Promise<IShowData[]> {
-    const show = (await ShowModel.find({ "movie._id": movieId })) as IShowData[];
-    return show;
+  public async getShowByMovie(city: string, movieId: string): Promise<IShowData[]> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matchCriteria: any = {};
+
+    if (movieId) {
+      matchCriteria["movie.name"] = movieId;
+    }
+
+    if (city) {
+      matchCriteria.city = city;
+    }
+
+    const result = await ShowModel.aggregate([
+      {
+        $match: matchCriteria
+      },
+      {
+        $sort: { time: 1 }
+      },
+      {
+        $group: {
+          _id: "$movie._id",
+          movie: { $first: "$movie" },
+          shows: {
+            $push: {
+              _id: "$_id",
+              userId: "$userId",
+              username: "$username",
+              city: "$city",
+              hall: "$hall",
+              time: "$time",
+              createdAt: "$createdAt",
+              __v: "$__v"
+            }
+          }
+        }
+      }
+    ]);
+    return result;
   }
 
   public async updateShow(_id: string, showData: Partial<IShowData>): Promise<IShowData | null> {

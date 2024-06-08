@@ -1,7 +1,7 @@
 import Joi, { ObjectSchema } from "joi";
 
 const showSchema: ObjectSchema = Joi.object().keys({
-  hall: Joi.string().required().messages({
+  hall: Joi.number().required().messages({
     "any.required": "Hall is a required field",
     "string.empty": "Hall property is not allowed to be empty"
   }),
@@ -17,6 +17,14 @@ const showSchema: ObjectSchema = Joi.object().keys({
     img: Joi.string().required().messages({
       "any.required": "Image is a required field",
       "string.empty": "Image property is not allowed to be empty"
+    }),
+    category: Joi.array().items(Joi.string()).required().messages({
+      "any.required": "Category is a required field",
+      "string.empty": "Category property is not allowed to be empty"
+    }),
+    description: Joi.string().required().messages({
+      "any.required": "Description is a required field",
+      "string.empty": "Description property is not allowed to be empty"
     })
   }),
   time: Joi.string().required().messages({

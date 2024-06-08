@@ -9,36 +9,41 @@ Accept: application/json
 withCredentials: true
 
 {
-  "hall": "65c499c41a2a9cf889acfd46",
+  "hall": 1,
   "movie": {
     "_id": "65c9d636f25ebd72f4ad920e",
     "name": "Barbie",
-    "img":"https://res.cloudinary.com/dandawid/image/upload/v1707745309/l6tfgxsoauixaj5clofg"
+    "category": [
+        "COMEDY",
+        "ADVENTURE"
+      ],
+    "img":"https://res.cloudinary.com/dandawid/image/upload/v1707745309/l6tfgxsoauixaj5clofg",
+    "description": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans."
   },
   "time": "14:00",
   "city": "AMSTERDAM"
 }
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/all
+GET {{baseUrl}}/{{urlPath}}/shows/filter?movieId=65c9d733f25ebd72f4ad922e
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/shows/movie/65c9d97af25ebd72f4ad925f/1
-Content-Type: application/json
-Accept: application/json
-withCredentials: true
-
-###
-GET {{baseUrl}}/{{urlPath}}/shows/65c9d692f25ebd72f4ad9227
+GET {{baseUrl}}/{{urlPath}}/shows/PARIS/65c9d692f25ebd72f4ad9227
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###  
 GET {{baseUrl}}/{{urlPath}}/shows/city/AMSTERDAM
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+GET {{baseUrl}}/{{urlPath}}/shows/movie/AMSTERDAM/Aquaman and the Lost Kingdom
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
